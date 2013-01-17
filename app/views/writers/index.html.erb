@@ -1,0 +1,31 @@
+<h1>Listing writers</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Screen name</th>
+    <th>Gender</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @writers.each do |writer| %>
+  <tr>
+    <td><%= writer.first_name %></td>
+    <td><%= writer.last_name %></td>
+    <td><%= writer.email %></td>
+    <td><%= writer.screen_name %></td>
+    <td><%= writer.gender %></td>
+    <td><%= link_to 'Show', writer %></td>
+    <td><%= link_to 'Edit', edit_writer_path(writer) %></td>
+    <td><%= link_to 'Destroy', writer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Writer', new_writer_path %>
