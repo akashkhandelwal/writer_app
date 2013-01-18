@@ -1,11 +1,13 @@
 WriterApp::Application.routes.draw do
+  get "home/home"
+
   resources :writers
 
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup', to: 'writers#new'
   match 'admin/signin', to: 'sessions#new'
-  match 'signout', to: 'sessions#destroy', via: :delete
+  match '/signout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -55,7 +57,7 @@ WriterApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#show'
 
   # See how all your routes lay out with "rake routes"
 

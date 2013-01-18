@@ -19,9 +19,11 @@
     <td><%= writer.email %></td>
     <td><%= writer.screen_name %></td>
     <td><%= writer.gender %></td>
-    <td><%= link_to 'Show', writer %></td>
-    <td><%= link_to 'Edit', edit_writer_path(writer) %></td>
-    <td><%= link_to 'Destroy', writer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_writer.admin? && !writer.admin? %>
+        <td><%= link_to 'Show', writer %></td>
+        <td><%= link_to 'Edit', edit_writer_path(writer) %></td>
+        <td><%= link_to 'Destroy', writer, method: :delete, data: { confirm: 'Are you sure?' } %></td>    
+    <% end %>
   </tr>
 <% end %>
 </table>

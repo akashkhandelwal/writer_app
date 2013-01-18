@@ -1,0 +1,16 @@
+<div class="nav_bar">
+	<p>
+		Signed in as :- <%= "#{current_writer.first_name} #{current_writer.last_name}" %>
+		<% if current_writer.admin? %>
+			(admin)
+		<% end %>
+	</p>
+	<ul >
+		<li><%=link_to 'Profile', writer_path(current_writer) %></li>
+		<li><%=link_to 'Writers', writers_path %></li>
+		<% if current_writer.admin? %>
+			<li><%=link_to 'Send invitation', '#' %></li>
+		<% end %>
+		<li><%= link_to "Sign out", signout_path, method: :delete  %></li>
+	</ul>
+</div>

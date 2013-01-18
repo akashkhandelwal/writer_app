@@ -4,6 +4,8 @@ namespace :db do
 		admin = Writer.create!(first_name: "Akash",
 													 last_name: "Khandelwal",
 													 email: "er.akashkhandelwal@gmail.com",
+													 password: "123123",
+													 password_confirmation: "123123",
 													 screen_name: "sample_screen",
 													 gender: "male")
 		admin.toggle!(:admin)
@@ -17,6 +19,8 @@ namespace :db do
 	    Writer.create!(first_name: first_name,
 	    						 last_name: last_name,
 	                 email: email,
+	                 password: password,
+	                 password_confirmation: password,
 	                 gender: gender,
 	                 screen_name: screen_name)
 	  end
