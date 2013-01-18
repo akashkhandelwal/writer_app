@@ -44,7 +44,8 @@ class WritersController < ApplicationController
 
     respond_to do |format|
       if @writer.save
-        format.html { redirect_to @writer, notice: 'Writer was successfully created.' }
+        sign_in @writer
+        format.html { redirect_to @writer, notice: 'Writer successfully created.' }
         format.json { render json: @writer, status: :created, location: @writer }
       else
         format.html { render action: "new" }
