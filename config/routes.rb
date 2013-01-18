@@ -1,5 +1,8 @@
 WriterApp::Application.routes.draw do
-  get "home/home"
+  
+  resources :invitation, only: [:new, :create]
+  
+  get "home/show"
 
   resources :writers
 
