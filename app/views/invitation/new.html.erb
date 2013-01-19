@@ -1,0 +1,12 @@
+<h1>Send Invitations</h1>
+<p>Enter multiple email ids by inserting comma in between them</p>
+
+<%= form_for(:invitation, url: invitation_index_path) do |f| %>
+  
+	<div class="field">
+		<%= f.label :email_list %><br />
+  	<%= f.text_field :email_list %>
+	</div>
+
+	<%= f.submit "Invite!" %>
+<% end %>
