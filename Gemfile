@@ -6,13 +6,23 @@ gem 'faker'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
-	gem 'sqlite3'
-end
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'spork'
+ end
 
 group :production do
 	gem 'pg'
 end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+end 
 
 
 # Gems used only for assets and not required

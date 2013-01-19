@@ -1,14 +1,12 @@
 WriterApp::Application.routes.draw do
-  
   resources :invitation, only: [:new, :create]
-  
   get "home/show"
 
   resources :writers
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup', to: 'writers#new'
+  match '/signup/:id/:invitation_token', to: 'writers#new', as: :registration
   match 'admin/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:

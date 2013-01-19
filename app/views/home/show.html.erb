@@ -1,6 +1,3 @@
-<% flash.each do |key, value| %>
-	<%= content_tag(:div, value) %><br /> 
-<% end %>
 <h1>Welcome to Writer's Hub</h1>
 <% unless signed_in? %>
 	<p><%= link_to "Sign in", admin_signin_path %> to continue</p>

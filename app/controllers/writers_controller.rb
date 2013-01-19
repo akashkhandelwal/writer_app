@@ -24,11 +24,14 @@ class WritersController < ApplicationController
   # GET /writers/new
   # GET /writers/new.json
   def new
-    @writer = Writer.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @writer }
+    @writer = Writer.find(params[:id])
+    if @writer.invitation_token == params[:invitation_token]
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @writer }
+      end
+    else
+      redirect_to root_url
     end
   end
 
