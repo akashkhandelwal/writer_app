@@ -8,4 +8,8 @@ FactoryGirl.define do
     screen_name           "sample screen"
     gender                "male"
   end
+
+  factory :admin do
+  	admin true
+  end
 end

@@ -6,7 +6,7 @@
 		<% end %>
 	</p>
 	<ul >
-		<li><%=link_to 'Profile', writer_path(current_writer) %></li>
+		<li><%=link_to 'Dashboard', writer_path(current_writer) %></li>
 		<li><%=link_to 'Writers', writers_path %></li>
 		<% if current_writer.admin? %>
 			<li><%=link_to 'Send invitation', new_invitation_path %></li>

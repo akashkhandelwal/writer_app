@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
 	def create
 		writer = Writer.find_by_email(params[:session][:email].downcase)
-    if writer && writer.authenticate(params[:session][:password])
-      sign_in writer
-      redirect_to writer
+    if writer && writer.authenticate(params[:session][:password]) 
+	      sign_in writer
+	      redirect_to writer
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'

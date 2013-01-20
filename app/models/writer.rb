@@ -20,9 +20,14 @@ class Writer < ActiveRecord::Base
   def save_emails(email_list)
   	email_ids = email_list.split(',')
 		email_ids.each do |email|
-			new_writer = Writer.new(email: email)
-			new_writer.save!(validate: false)
-			WriterMailer.invitation_mail(new_writer).deliver
+      writer = Writer.find_by_email(email)
+      if writer
+        WriterMailer.invitation_mail(writer).deliver
+      else
+  			new_writer = Writer.new(email: email)
+  			new_writer.save!(validate: false)
+  			WriterMailer.invitation_mail(new_writer).deliver
+      end
 		end
   end
 
